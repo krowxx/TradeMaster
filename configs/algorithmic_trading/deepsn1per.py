@@ -24,8 +24,7 @@ data = dict(
     train_path='data/algorithmic_trading/BTC2/train.csv',
     valid_path='data/algorithmic_trading/BTC2/valid.csv',
     test_path='data/algorithmic_trading/BTC2/test.csv',
-    test_dynamic_path=
-    'data/algorithmic_trading/BTC2/Market_Dynamics_Model/BTC/test_labeled_slice_and_merge_model_3dynamics_minlength12_quantile_labeling.csv',
+    test_dynamic_path='data/algorithmic_trading/BTC2/test_deepsn1per.csv',
     tech_indicator_list=[
         'rsi', 'oisi', 'mfi', 'adx', 'high_vol', 'longs_closing', 'longs_opening', 'shorts_closing',
         'shorts_opening', 'upper_band_diff', 'lower_band_diff', 'vwap_diff', 'openz', 'highz', 'lowz', 'closez'

@@ -424,10 +424,10 @@ def get_last_checkpoint(output_dir):
 
 
 def load_model(output_dir,
-               save,
-               epoch = None,
-               resume = None,
-               is_train = True,verbose = False):
+                save,
+                epoch = None,
+                resume = None,
+                is_train = True,verbose = False):
 
     if resume is None:
         resume = get_last_checkpoint(output_dir)

@@ -166,3 +166,27 @@ class AlgorithmicTradingDQN(AgentBase):
         """
         for tar, cur in zip(target_net.parameters(), current_net.parameters()):
             tar.data.copy_(cur.data * tau + tar.data * (1.0 - tau))
+            
+    def load_state_dict(self, state_dict: dict):
+        self.act.load_state_dict(state_dict["act"])
+        self.cri.load_state_dict(state_dict["cri"])
+        self.act_target.load_state_dict(state_dict["act_target"])
+        self.cri_target.load_state_dict(state_dict["cri_target"])
+        self.act_optimizer.load_state_dict(state_dict["act_optimizer"])
+        self.cri_optimizer.load_state_dict(state_dict["cri_optimizer"])
+        
+    def save_state_dict(self):
+        res = {
+            "act":self.act.state_dict(),
+            "cri":self.cri.state_dict(),
+            "act_target":self.act_target.state_dict(),
+            "cri_target":self.cri_target.state_dict(),
+            "act_optimizer":self.act_optimizer.state_dict(),
+            "cri_optimizer":self.cri_optimizer.state_dict()
+        }
+        return res
+    
+    def predict(self, state: Tensor) -> Tensor:
+        return self.act(state)
+    
+    
